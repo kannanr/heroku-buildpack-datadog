@@ -65,6 +65,8 @@ fi
 
 # Uncomment APM configs and add the log file location.
 sed -i -e"s|^# apm_config:$|apm_config:|" "$DATADOG_CONF"
+# Enable the apm_config
+sed -i -e"s|^apm_config:$|apm_config:\n  enabled: true|" "$DATADOG_CONF"
 # Add the log file location.
 sed -i -e"s|^apm_config:$|apm_config:\n  log_file: $DD_APM_LOG|" "$DATADOG_CONF"
 
